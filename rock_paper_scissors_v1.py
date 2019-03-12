@@ -10,7 +10,7 @@ import random
 # ---------------------------------------------------------------------------------------------------
 
 def validate_inputs(p1, p2):
-    if (p1[0] == 's' or p1[0] == 'r' or p1[0] == 'p') and  (p2[0] == 's' or p2[0] == 'r' or p2[0] == 'p'):
+    if (['s', 'r', 'p'].__contains__(p1[0]) and ['s', 'r', 'p'].__contains__(p2[0])):
         return
     else:
         os.system('clear')
@@ -22,12 +22,8 @@ def validate_inputs(p1, p2):
 # ---------------------------------------------------------------------------------------------------
 
 def get_approp_choice (p):
-    if p == 's':
-        return 'scissor'
-    if p == 'r':
-        return 'rock'
-    if p == 'p':
-        return 'paper'
+    appro_words = {'s':'scissor', 'r':'rock', 'p':'paper'};
+    return appro_words[p]
 
 # ---------------------------------------------------------------------------------------------------
 # Logic of the game begins
@@ -44,6 +40,7 @@ score_p2 = 0
 player1 = input('Player 1 - Enter your name : ')
 player2 = input('Player 2 - Enter your name : ')
 
+winning_cases = {'s':'p', 'p':'r', 'r':'s'}
 
 while (num_of_rounds != 3):
     os.system('clear')
@@ -71,7 +68,7 @@ while (num_of_rounds != 3):
 
     if p1[0] == p2[0]:
         pass
-    elif (p1[0] == 's' and p2[0] == 'p') or (p1[0] == 'p' and p2[0] == 'r') or (p1[0] == 'r' and p2[0] == 's'):
+    elif (winning_cases[p1[0]] == p2[0]):
         winner = player1
         score_p1 += 1
     else:
@@ -96,6 +93,6 @@ os.system('clear')
 if score_p1 == score_p2 : 
     print('!!!! Draw Series !!!!')
 elif score_p1 > score_p2 :
-    print(player1 + ' wins the series.')
+    print('!!! ' + player1 + ' wins the series !!!')
 else:
-    print(player2 + ' wins the series.')
+    print('!!! ' + player2 + ' wins the series !!!')
