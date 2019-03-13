@@ -9,6 +9,7 @@ import random
 # Function to validate the inputs if they aren't properly entered
 # ---------------------------------------------------------------------------------------------------
 
+
 def validate_inputs(p1, p2):
     if (['s', 'r', 'p'].__contains__(p1[0]) and ['s', 'r', 'p'].__contains__(p2[0])):
         return
@@ -21,13 +22,15 @@ def validate_inputs(p1, p2):
 # Function to return appropriate names
 # ---------------------------------------------------------------------------------------------------
 
-def get_approp_choice (p):
-    appro_words = {'s':'scissor', 'r':'rock', 'p':'paper'};
+
+def get_approp_choice(p):
+    appro_words = {'s': 'scissor', 'r': 'rock', 'p': 'paper'}
     return appro_words[p]
 
 # ---------------------------------------------------------------------------------------------------
 # Logic of the game begins
 # ---------------------------------------------------------------------------------------------------
+
 
 print('# -------------------------------------------------------------------------------------- #')
 print('Rock - Paper - Scissors | Best - Of - Three - Series')
@@ -40,7 +43,7 @@ score_p2 = 0
 player1 = input('Player 1 - Enter your name : ')
 player2 = input('Player 2 - Enter your name : ')
 
-winning_cases = {'s':'p', 'p':'r', 'r':'s'}
+winning_cases = {'s': 'p', 'p': 'r', 'r': 's'}
 
 while (num_of_rounds != 3):
     os.system('clear')
@@ -84,15 +87,15 @@ while (num_of_rounds != 3):
         print(winner + ' wins the round.')
     else:
         print('!!!! Draw !!!!')
-    
+
     input('Continue ? ')
     num_of_rounds += 1
 
 # Prints the complete series result
 os.system('clear')
-if score_p1 == score_p2 : 
+if score_p1 == score_p2:
     print('!!!! Draw Series !!!!')
-elif score_p1 > score_p2 :
+elif score_p1 > score_p2:
     print('!!! ' + player1 + ' wins the series !!!')
 else:
     print('!!! ' + player2 + ' wins the series !!!')
