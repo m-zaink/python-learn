@@ -52,12 +52,17 @@ while (num_of_rounds < 3):
     print(f' ROUND #{num_of_rounds + 1}')
     print('# -------------------------------------------------------------------------------------- #')
 
-    p1 = input(player1 + ' - Enter your choice : ')
+    p1 = input(player1 + ' - Enter your choice (rock, paper, or scissor): ')
     p2 = comp_choices[random.randint(0, 2)]
 
     os.system('clear')
-
-    p1 = p1.lower()
+    if p1:
+        p1 = p1.lower()
+    else:
+        print('!!! Improper choice !!!')
+        input()
+        continue
+    
     p2 = p2.lower()
 
     validate_inputs(p1, p2)
