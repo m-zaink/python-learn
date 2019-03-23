@@ -23,9 +23,8 @@ if not data['results']:
 else:
     print(fg('WEIRD JOKES'))
 
-for result in data['results']:
-    print(colored(
-        '+ ' + result['joke'],
-        color=choice(colors),
-        on_color='on_white'
-    ))
+print(colored(
+    choice(data['results'])['joke'],
+    color=choice(colors),
+    on_color='on_white')
+)
